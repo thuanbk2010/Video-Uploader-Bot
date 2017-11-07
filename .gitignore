@@ -69,3 +69,4 @@ $RECYCLE.BIN/
 # Custom
 client_secrets.json
 video_upload.py-oauth2.json
+*.mp4
