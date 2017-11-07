@@ -29,7 +29,7 @@ this python lib `pip install --upgrade google-api-python-client`
 9. Fill in the form
 10. click add a bot user
 11. Click reveal the Token link
-12. edit src\main\java\io\github\videobot\Main.java and change the API_KEY to the token of your bot user
+12. create a file named discord_token.txt and paste ur Token into it
 13. launch the bot on ur machine
 14. Use this link to the bot to ur server: https://discordapp.com/oauth2/authorize?client_id=[UR CLIENT ID HERE]&scope=bot&permissions=93184
 NOTE: Dont change the permissions thing at the end it will screw up the bot!
