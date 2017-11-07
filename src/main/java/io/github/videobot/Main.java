@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static final String DISCORD_API_KEY = "Mzc3MjAzMTMxMzkxNDEwMTc4.DONb6w.6Lk3mY1fMUJNsuVrqA4VEKjAd9s";
+    public static final String DISCORD_API_KEY = "UR_TOKEN_HERE";
 
     public static void main(String[] argsArray) {
         ArrayList<String> args = new ArrayList<>(Arrays.asList(argsArray));
