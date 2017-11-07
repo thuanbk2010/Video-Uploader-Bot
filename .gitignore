@@ -61,3 +61,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# IntelliJ
+.idea
+*.iml
+
+# Custom
+client_secrets.json
+video_upload.py-oauth2.json
