@@ -30,7 +30,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
             if (name.matches(".*.(mp4|avi)")) {
                 final URL url = attachment.getUrl();
 
-                message.getChannelReceiver().sendMessage("Processing file: " + name, new FutureCallback<Message>() {
+                message.getChannelReceiver().sendMessage("Processing file (Special version of the msg!!!): " + name, new FutureCallback<Message>() {
                     @Override
                     public void onSuccess(Message fileProcessMessage) {
                         System.out.println("Success!!");
