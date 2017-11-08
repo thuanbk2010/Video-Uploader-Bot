@@ -44,7 +44,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                             urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
                             urlConnection.connect();
                             if (urlConnection.getInputStream().available() > 10000000) {
-                                fileProcessMessage.edit("File is too big max file size = 50 MB"); // Lets say i'v made a change
+                                fileProcessMessage.edit("File is too big max file size = 50 MB");
                                 throw new Exception("ignore");
                             }
                             ReadableByteChannel rbc = Channels.newChannel(urlConnection.getInputStream());
