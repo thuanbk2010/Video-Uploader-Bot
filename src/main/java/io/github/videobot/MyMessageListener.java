@@ -52,7 +52,11 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
 
                             message.delete();
 
-                            Process p = Runtime.getRuntime().exec("python video_upload.py --file "+tmp.getAbsolutePath()+" --title "+name);
+                            String cmd = "python video_upload.py --file "+tmp.getAbsolutePath()+" --title "+name;
+
+                            System.out.println(cmd);
+
+                            Process p = Runtime.getRuntime().exec(cmd);
                             BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String ytUrl = br.readLine();
                             fileProcessMessage.edit(ytUrl);
