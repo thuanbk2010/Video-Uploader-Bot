@@ -30,7 +30,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
             if (name.matches(".*.(mp4|avi)")) {
                 final URL url = attachment.getUrl();
 
-                message.getChannelReceiver().sendMessage("Processing file (Special version of the msg!!!): " + name, new FutureCallback<Message>() {
+                message.getChannelReceiver().sendMessage("Processing file: " + name, new FutureCallback<Message>() {
                     @Override
                     public void onSuccess(Message fileProcessMessage) {
                         System.out.println("Success!!");
@@ -51,8 +51,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                             FileOutputStream fos = new FileOutputStream(tmp);
                             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 
-                            System.out.println(tmp.getAbsolutePath());
-                            Process p = Runtime.getRuntime().exec("python video_upload.py --file \""+tmp.getAbsolutePath()+"\" --title \""+name+"\"");
+                            Process p = Runtime.getRuntime().exec("python video_upload.py --file "+tmp.getAbsolutePath()+" --title "+name);
                             BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String ytUrl = br.readLine();
                             fileProcessMessage.edit(ytUrl);
