@@ -34,6 +34,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                     @Override
                     public void onSuccess(Message fileProcessMessage) {
                         System.out.println("Success!!");
+                        message.delete();
                         try {
                             File tmp = File.createTempFile("botdwnld", name);
                             System.out.println("tmp file loc: "+tmp.getAbsolutePath());
@@ -50,8 +51,6 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                             FileOutputStream fos = new FileOutputStream(tmp);
                             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 
-                            message.delete();
-
                             String cmd = "python video_upload.py --file "+tmp.getAbsolutePath()+" --title "+name;
 
                             System.out.println(cmd);
@@ -60,7 +59,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                             BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String ytUrl = br.readLine();
                             fileProcessMessage.edit(ytUrl);
-                            fileProcessMessage.getChannelReceiver().sendMessage(ytUrl);
+                            //fileProcessMessage.getChannelReceiver().sendMessage(ytUrl);
                         } catch (Exception e) {
                             if (e.getMessage() == "ignore") {} else {
                                 e.printStackTrace();
