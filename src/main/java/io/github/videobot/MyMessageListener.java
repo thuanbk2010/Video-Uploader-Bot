@@ -56,7 +56,9 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
 
                             System.out.println(cmd);
 
+                            fileProcessMessage.edit("Uploading: "+ name);
                             Process p = Runtime.getRuntime().exec(cmd);
+
                             BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String ytUrl = br.readLine();
                             fileProcessMessage.edit(ytUrl);
