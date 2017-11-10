@@ -61,7 +61,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                             fileProcessMessage.edit(ytUrl);
                             //fileProcessMessage.getChannelReceiver().sendMessage(ytUrl);
                         } catch (Exception e) {
-                            if (e.getMessage() == "ignore") {} else {
+                            if (e.getMessage() == "ignore") { e.printStackTrace(); } else {
                                 e.printStackTrace();
                             }
                         }
