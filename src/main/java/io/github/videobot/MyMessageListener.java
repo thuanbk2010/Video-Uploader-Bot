@@ -61,7 +61,11 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
 
                             BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String ytUrl = br.readLine();
-                            fileProcessMessage.edit(ytUrl);
+                            if (!message.getContent().isEmpty()) {
+                                fileProcessMessage.edit(message.getAuthor().getMentionTag()+" 's Message: "+message.getContent()+" "+ytUrl);
+                            } else {
+                                fileProcessMessage.edit(message.getAuthor().getMentionTag()+" "+ytUrl);
+                            }
                             //fileProcessMessage.getChannelReceiver().sendMessage(ytUrl);
                         } catch (Exception e) {
                             if (e.getMessage() == "ignore") { e.printStackTrace(); } else {
