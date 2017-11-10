@@ -34,7 +34,6 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                     @Override
                     public void onSuccess(Message fileProcessMessage) {
                         System.out.println("Success!!");
-                        message.delete();
                         try {
                             File tmp = File.createTempFile("botdwnld", name);
                             System.out.println("tmp file loc: "+tmp.getAbsolutePath());
@@ -47,6 +46,8 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                                 fileProcessMessage.edit("File is too big max file size = 10 MB");
                                 throw new Exception("ignore");
                             }
+                            message.delete();
+
                             ReadableByteChannel rbc = Channels.newChannel(urlConnection.getInputStream());
                             FileOutputStream fos = new FileOutputStream(tmp);
                             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
