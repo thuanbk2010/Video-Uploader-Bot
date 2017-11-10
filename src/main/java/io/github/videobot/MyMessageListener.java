@@ -64,7 +64,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
                             if (!message.getContent().isEmpty()) {
                                 fileProcessMessage.edit(message.getAuthor().getMentionTag()+" 's Message: "+message.getContent()+" "+ytUrl);
                             } else {
-                                fileProcessMessage.edit(message.getAuthor().getMentionTag()+" "+ytUrl);
+                                fileProcessMessage.edit(ytUrl);
                             }
                             //fileProcessMessage.getChannelReceiver().sendMessage(ytUrl);
                         } catch (Exception e) {
