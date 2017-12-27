@@ -27,7 +27,7 @@ public class MyMessageListener implements MessageCreateListener, MessageEditList
         ArrayList<MessageAttachment> attachments = new ArrayList<>(message.getAttachments());
         for (MessageAttachment attachment : attachments) {
             final String name = attachment.getFileName();
-            if (name.matches(".*.(mp4|avi)")) {
+            if (name.matches(".*.(mp4|avi|wmv)")) {
                 final URL url = attachment.getUrl();
 
                 message.getChannelReceiver().sendMessage("Processing file: " + name, new FutureCallback<Message>() {
